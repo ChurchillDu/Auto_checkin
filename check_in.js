@@ -10,12 +10,12 @@
 // @supportURL   https://bbs.tampermonkey.net.cn/forum.php?mod=viewthread&tid=371
 // @homepage     https://bbs.tampermonkey.net.cn/forum.php?mod=viewthread&tid=371
 // ==/UserScript==
-var username = ''
-var password = ''
+var username = 'churchilldu@nuaa.edu.cn'
+var password = '3wbs.EMEeVgTj7k'
 async function AutoSign() {
     GM_notification('我执行了');
     let xhr = await GMSC_xmlhttpRequest({
-        url: "https://jinkela.red/user/logout",
+        url: "https://v2.freeok.xyz/user/logout",
         method: "GET",
         headers: {
             "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
@@ -23,7 +23,7 @@ async function AutoSign() {
     })
     debugger;
     xhr = await GMSC_xmlhttpRequest({
-        url: "https://jinkela.red/auth/login",
+        url: "https://v2.freeok.xyz/auth/login",
         method: "POST",
         data: 'email=' + encodeURIComponent(username) + '&passwd=' + encodeURIComponent(password) + '&code=',
         headers: {
@@ -33,7 +33,7 @@ async function AutoSign() {
     )
     if (xhr.responseText.indexOf('登出') != -1 || JSON.parse(xhr.responseText).msg == '登录成功') {
         xhr = await GMSC_xmlhttpRequest({
-            url: "https://jinkela.red/user/checkin",
+            url: "https://v2.freeok.xyz/user/checkin",
             method: "POST",
             data: '',
             headers: {
